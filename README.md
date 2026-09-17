@@ -12,6 +12,14 @@ Node.js 22以上。外部パッケージのインストールは不要。
 
 コンテンツは `scripts/build.mjs`、スタイルは `dist/assets/style.css` と `layout.css`。画像はローカル配信し、旧サイトに依存しません。`scripts/prepare-assets.mjs` は制作時の素材準備用で、ビルド・公開時には実行しません。
 
+## GitHub Pages（確認用サイト）
+
+- URL： https://crestix-company.github.io/CLOCKLESS/
+- `main` へのプッシュで `.github/workflows/pages.yml` がビルド・検証・公開を実行します。
+- GitHubの Settings → Pages → Source は **GitHub Actions** を指定します。ブランチのルートを公開するとREADMEが表示されるため使用しません。
+- `npm run build:github-pages` が `.sites-runtime/github-pages` にサイト本体だけを出力します。全ページ・画像・404のリンクは `/CLOCKLESS/` に対応しています。
+- GitHub Pagesにはメール送信機能がないため、確認用サイトのフォーム送信ボタンは無効化しています。実際のフォーム運用は下記のCloudflare設定が必要です。
+
 ## Cloudflare Pages（未公開）
 
 - フレームワーク：None
@@ -20,7 +28,7 @@ Node.js 22以上。外部パッケージのインストールは不要。
 - ルートディレクトリ：このプロジェクトのルート
 - `functions/` も同時にデプロイするGit連携またはWranglerを使用。管理画面への `dist` ドラッグ＆ドロップのみではフォームは動きません。
 
-GitHubリポジトリ： https://github.com/crestix-company/CLOCKLESS （`main` ブランチ）。CloudflareのGit連携では、このリポジトリとブランチを選択してください。GitHubへのプッシュだけでは新しい公開先は作成されません。
+GitHubリポジトリ： https://github.com/crestix-company/CLOCKLESS （`main` ブランチ）。CloudflareのGit連携では、このリポジトリとブランチを選択してください。上記のGitHub Pagesは確認用で、Cloudflareの公開設定・独自ドメインには変更を加えません。
 
 独自ドメインの切替は行っていません。既存会社への確認後に進めます。
 

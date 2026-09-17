@@ -21,8 +21,9 @@ if(form){
   form.addEventListener('input',()=>{if(!sending){resetReview();idempotency=crypto.randomUUID();}});
   edit.addEventListener('click',()=>{resetReview();form.elements.name.focus();});
   async function setup(){
+    if(form.dataset.previewOnly==='true')return;
     try{
-      const response=await fetch('/api/contact',{headers:{Accept:'application/json'}});
+      const response=await fetch(form.action,{headers:{Accept:'application/json'}});
       if(!response.ok)throw new Error('unavailable');
       const config=await response.json();
       if(!config.enabled||!config.siteKey)throw new Error('unavailable');
@@ -34,7 +35,7 @@ if(form){
   }
   setup();
   form.addEventListener('submit',async e=>{
-    e.preventDefault();if(sending||!form.reportValidity())return;
+    e.preventDefault();if(form.dataset.previewOnly==='true'||sending||!form.reportValidity())return;
     if(!confirmed){
       const labels={topic:'お問い合わせ種別',name:'お名前',kana:'ふりがな',email:'メールアドレス',phone:'電話番号',address:'ご住所',message:'お問い合わせ内容'};
       const dl=review.querySelector('dl');dl.replaceChildren();
@@ -45,7 +46,7 @@ if(form){
     sending=true;submit.disabled=true;edit.disabled=true;notice('送信しています…');
     try{
       const payload=Object.fromEntries(new FormData(form));payload.consent=form.elements.consent.checked;payload.token=token;
-      const response=await fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json','Idempotency-Key':idempotency},body:JSON.stringify(payload),signal:AbortSignal.timeout(20000)});
+      const response=await fetch(form.action,{method:'POST',headers:{'Content-Type':'application/json','Idempotency-Key':idempotency},body:JSON.stringify(payload),signal:AbortSignal.timeout(20000)});
       const result=await response.json();
       if(!response.ok||result.ok!==true)throw new Error(result.error||'送信できませんでした。');
       form.reset();resetReview();idempotency=crypto.randomUUID();notice('お問い合わせを受け付けました。内容を確認し、ご連絡いたします。ご予約はこの送信では確定しません。');
