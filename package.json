@@ -1,0 +1,1 @@
+{"name":"clockless-website","version":"1.0.0","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs && node scripts/verify.mjs","dev":"node scripts/preview.mjs","test":"node --test scripts/contact.test.mjs"},"engines":{"node":">=22"}}
