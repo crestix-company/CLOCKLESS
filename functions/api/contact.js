@@ -1,5 +1,5 @@
 const json=(data,status=200)=>Response.json(data,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
-const topics={general:'サロンについて',recruit:'採用・サロン見学について',lesson:'カット講習について',cafe:'カフェについて',other:'その他'};
+const topics={general:'サロンについて',recruit:'採用・サロン見学について',cafe:'カフェについて',other:'その他'};
 const emailPattern=/^[^\s@\r\n]+@[^\s@\r\n]+\.[^\s@\r\n]+$/;
 const enabled=env=>Boolean(env.RESEND_API_KEY&&env.CONTACT_TO&&env.CONTACT_FROM&&env.TURNSTILE_SECRET_KEY&&env.TURNSTILE_SITE_KEY);
 export async function onRequestGet({env}){return json({enabled:enabled(env),siteKey:enabled(env)?env.TURNSTILE_SITE_KEY:null});}

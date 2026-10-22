@@ -10,6 +10,8 @@ for(const route of routes){
   assert.equal((html.match(/<h1[ >]/g)||[]).length,1,`${route}: one h1`);
   assert(html.includes('lang="ja"')&&html.includes('name="description"'),`${route}: metadata`);
   assert(!html.includes('541-0056')&&!html.includes('895円')&&!html.includes('AI生成'),`${route}: stale content`);
+  assert(!/9:00–20:00|隔週1回|シンプルな内装|本多|木暮|カット講習|CUT LESSON/.test(html),`${route}: outdated service or staff information`);
+  assert(!/href="[^"]*\/lesson\//.test(html),`${route}: retired service link`);
   for(const match of html.matchAll(/(?:href|src)="([^"]+)"/g)){
     const ref=match[1].replaceAll('&amp;','&');
     if(/^(?:https?:|tel:|mailto:|data:|#)/.test(ref))continue;

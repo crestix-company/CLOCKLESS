@@ -10,11 +10,11 @@ const items = {
   salon: 'pc_mv2.jpg', exterior: 'pc_mv03.jpg',
   consultation:'concept01-1.jpg', cut:'concept02jpg.jpg', color:'concept03-1.jpg',
   education:'top_curriculum.jpg', team:'recruit_top.jpg',
-  minegishi:'staff1.jpg', honda:'staff2.jpg', kogure:'staff3.jpg',
+  minegishi:'staff1.jpg',
   'cafe-counter':'cafe_right_top.jpg', 'cafe-drinks':'top_cafe3.jpg',
   'style-01':'gallery01.jpg', 'style-02':'gallery02.jpg', 'style-03':'gallery04.jpg',
   'style-04':'gallery03.jpg', 'style-05':'style08.jpg', 'style-06':'style07.jpg', 'style-07':'gallery05.jpg',
-  lesson:'lesson_img.jpg', 'salon-detail':'info_gallery01.jpg',
+  'salon-detail':'info_gallery01.jpg',
 };
 await mkdir(path.join(root,'source-assets'),{recursive:true});
 await Promise.all(Object.entries(items).map(async ([name, file]) => {

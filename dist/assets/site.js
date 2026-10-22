@@ -14,7 +14,7 @@ const form=document.querySelector('#contact-form');
 if(form){
   const status=document.querySelector('#form-status'), submit=form.querySelector('[type=submit]'), review=form.querySelector('.form-review'),edit=document.querySelector('#edit-form');
   const topic=new URLSearchParams(location.search).get('topic');
-  if(['recruit','lesson','cafe'].includes(topic))form.elements.topic.value=topic;
+  if(['recruit','cafe'].includes(topic))form.elements.topic.value=topic;
   let confirmed=false,sending=false,ready=false,widget,token='',idempotency=crypto.randomUUID();
   const notice=(text,error=false)=>{status.textContent=text;status.classList.toggle('error',error);};
   const resetReview=()=>{confirmed=false;review.hidden=true;edit.hidden=true;submit.textContent='入力内容を確認する →';};

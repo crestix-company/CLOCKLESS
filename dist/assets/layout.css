@@ -17,3 +17,12 @@ h1,h2,h3{text-wrap:balance;line-break:strict;overflow-wrap:normal}p{text-wrap:pr
 @media(max-width:760px){.hero-bottom{font-size:12px;letter-spacing:.025em}.hero-bottom span:first-child{max-width:170px}.hero-bottom span:last-child{max-width:125px}.hero .eyebrow{font-size:11px;letter-spacing:.1em}.footer-links nav{grid-template-columns:1fr 1fr;gap:14px 20px}.footer-links a{font-size:14px}.social-links{display:grid;gap:12px}.staff-grid{gap:18px}.staff-grid h2 span{font-size:12px;letter-spacing:0}.header #mobile-nav>a{font-size:16px}.header #mobile-nav>a span{font-size:12px}.mobile-booking>a{font-size:14px}.form-required,.privacy,.consent,.notes{font-size:14px}}
 main p:not(.eyebrow):not(.small):not(.photo-note):not(.form-required):not(#form-status){font-size:16px}.details dd{font-size:16px}.details dt{font-size:14px;letter-spacing:.04em}.header .desktop-nav>a{font-size:14px}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+/* Bilingual desktop navigation and the current single stylist profile. */
+.header .desktop-nav>a{display:flex;flex-direction:column;align-items:center;gap:3px;line-height:1.5;white-space:nowrap}
+.header .desktop-nav .nav-ja{font-size:12px;font-weight:400;letter-spacing:.02em;color:var(--muted)}
+.team-portraits.single-portrait{grid-template-columns:1fr;max-width:380px;width:100%;justify-self:center}
+.team-portraits.single-portrait>img{margin-top:0}
+.related.related-single{grid-template-columns:1fr}
+.cafe-info .cafe-logo{width:160px;height:auto;margin-top:36px}
+.hours-note{display:block;font-size:14px;color:var(--muted);margin-top:6px}
+@media(max-width:760px){.cafe-info .cafe-logo{width:132px;margin-top:28px}.team-portraits.single-portrait{max-width:340px}}
