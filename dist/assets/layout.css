@@ -34,3 +34,5 @@ main p:not(.eyebrow):not(.small):not(.photo-note):not(.form-required):not(#form-
 .cafe-info-title,.access-preview h2{font:400 clamp(28px,3vw,40px)/1.8 var(--serif);letter-spacing:.03em}
 .cafe-photo-pair>.cafe-cups-wide{width:100%;height:auto;aspect-ratio:539/226;object-fit:cover;object-position:center 37%}
 @media(max-width:760px){.cafe-brand{padding-top:40px;padding-bottom:28px}.cafe-brand h1{font-size:24px;letter-spacing:.04em;margin-bottom:28px}.cafe-brand .cafe-logo{width:min(76vw,280px)}.cafe-hero{padding-top:28px}}
+
+.details .keep-together{display:inline-block}
