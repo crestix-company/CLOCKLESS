@@ -23,6 +23,14 @@ main p:not(.eyebrow):not(.small):not(.photo-note):not(.form-required):not(#form-
 .team-portraits.single-portrait{grid-template-columns:1fr;max-width:380px;width:100%;justify-self:center}
 .team-portraits.single-portrait>img{margin-top:0}
 .related.related-single{grid-template-columns:1fr}
-.cafe-info .cafe-logo{width:160px;height:auto;margin-top:36px}
 .hours-note{display:block;font-size:14px;color:var(--muted);margin-top:6px}
-@media(max-width:760px){.cafe-info .cafe-logo{width:132px;margin-top:28px}.team-portraits.single-portrait{max-width:340px}}
+
+
+/* Owner-requested cafe branding, with the supplied current logo. */
+.cafe-brand{text-align:center;padding-top:64px;padding-bottom:40px}
+.cafe-brand h1{font:500 clamp(24px,2.5vw,34px)/1.5 var(--sans);letter-spacing:.08em;margin:0 0 30px}
+.cafe-brand .cafe-logo{width:320px;height:auto;margin:0 auto}
+.cafe-hero{padding-top:40px}
+.cafe-info-title,.access-preview h2{font:400 clamp(28px,3vw,40px)/1.8 var(--serif);letter-spacing:.03em}
+.cafe-photo-pair>.cafe-cups-wide{width:100%;height:auto;aspect-ratio:539/226;object-fit:cover;object-position:center 37%}
+@media(max-width:760px){.cafe-brand{padding-top:40px;padding-bottom:28px}.cafe-brand h1{font-size:24px;letter-spacing:.04em;margin-bottom:28px}.cafe-brand .cafe-logo{width:min(76vw,280px)}.cafe-hero{padding-top:28px}}
